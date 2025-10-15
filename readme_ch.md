@@ -176,7 +176,7 @@ AionUi 为需要更好工作流效率的用户提供了现代界面，同时**�
 - [📖 完整安装指南](https://github.com/iOfficeAI/AionUi/wiki/Getting-Started-Chinese) - 从下载到配置的详细步骤
 - [⚙️ LLM 配置指南](https://github.com/iOfficeAI/AionUi/wiki/LLM-Configuration-Chinese) - 多平台 AI 模型配置
 - [🤖 多代理模式设置](https://github.com/iOfficeAI/AionUi/wiki/ACP-Setup-Chinese) - 集成终端 AI 代理
-- [🔌 MCP 工具配置](https://github.com/iOfficeAI/AionUi/wiki/MCP-Setup-Chinese) - 模型上下文协议服务器设置
+- [🔌 MCP 工具配置](https://github.com/iOfficeAI/AionUi/wiki/MCP-Configuration-Guide-Chinese) - 模型上下文协议服务器设置
 - [🎨 图像生成配置](https://github.com/iOfficeAI/AionUi/wiki/AionUi-Image-Generation-Tool-Model-Configuration-Guide-Chinese) - AI 图像生成设置教程
 
 ### 🎯 使用案例

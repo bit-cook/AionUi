@@ -192,7 +192,7 @@ Ready to try AionUi? Download the latest version for your platform from our rele
 - [📖 Complete Installation Guide](https://github.com/iOfficeAI/AionUi/wiki/Getting-Started) - Detailed steps from download to configuration
 - [⚙️ LLM Configuration Guide](https://github.com/iOfficeAI/AionUi/wiki/LLM-Configuration) - Multi-platform AI model configuration
 - [🤖 Multi-Agent Mode Setup](https://github.com/iOfficeAI/AionUi/wiki/ACP-Setup) - Integrate terminal AI agents
-- [🔌 MCP Tool Configuration](https://github.com/iOfficeAI/AionUi/wiki/MCP-Setup) - Model Context Protocol server setup
+- [🔌 MCP Tool Configuration](https://github.com/iOfficeAI/AionUi/wiki/MCP-Configuration-Guide) - Model Context Protocol server setup
 - [🎨 Image Generation Configuration](https://github.com/iOfficeAI/AionUi/wiki/AionUi-Image-Generation-Tool-Model-Configuration-Guide) - AI image generation setup tutorial
 
 ### 🎯 Use Cases

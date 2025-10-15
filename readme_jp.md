@@ -176,7 +176,7 @@ AionUi をお試しですか？お使いの環境に合った最新版を、リ�
 - [📖 完全インストールガイド](https://github.com/iOfficeAI/AionUi/wiki/Getting-Started-Chinese) - ダウンロードから設定までの詳細ステップ
 - [⚙️ LLM 設定ガイド](https://github.com/iOfficeAI/AionUi/wiki/LLM-Configuration-Chinese) - マルチプラットフォーム AI モデル設定
 - [🤖 マルチエージェントモード設定](https://github.com/iOfficeAI/AionUi/wiki/ACP-Setup-Chinese) - ターミナル AI エージェント統合
-- [🔌 MCP ツール設定](https://github.com/iOfficeAI/AionUi/wiki/MCP-Setup-Chinese) - モデルコンテキストプロトコルサーバー設定
+- [🔌 MCP ツール設定](https://github.com/iOfficeAI/AionUi/wiki/MCP-Configuration-Guide-Chinese) - モデルコンテキストプロトコルサーバー設定
 - [🎨 画像生成設定](https://github.com/iOfficeAI/AionUi/wiki/AionUi-Image-Generation-Tool-Model-Configuration-Guide-Chinese) - AI 画像生成設定チュートリアル
 
 ### 🎯 ユースケース
