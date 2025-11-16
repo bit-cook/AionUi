@@ -1,4 +1,5 @@
 import { ipcBridge } from '@/common';
+import FontSizeControl from '@/renderer/components/FontSizeControl';
 import LanguageSwitcher from '@/renderer/components/LanguageSwitcher';
 import ThemeSwitcher from '@/renderer/components/ThemeSwitcher';
 import { iconColors } from '@/renderer/theme/colors';
@@ -14,41 +15,55 @@ const DirInputItem: React.FC<{
   label: string;
   field: string;
 }> = (props) => {
+  const { t } = useTranslation();
   return (
     <Form.Item label={props.label} field={props.field}>
-      {(options, form) => (
-        <Input
-          disabled
-          value={options[props.field]}
-          addAfter={
-            <FolderOpen
-              theme='outline'
-              size='24'
-              fill={iconColors.primary}
-              onClick={() => {
-                ipcBridge.dialog.showOpen
-                  .invoke({
-                    defaultPath: options[props.field],
-                    properties: ['openDirectory', 'createDirectory'],
-                  })
-                  .then((data) => {
-                    if (data?.[0]) {
-                      form.setFieldValue(props.field, data[0]);
-                    }
-                  })
-                  .catch((error) => {
-                    console.error('Failed to open directory dialog:', error);
-                  });
-              }}
-            />
-          }
-        ></Input>
-      )}
+      {(options, form) => {
+        const currentValue = options[props.field] || '';
+
+        const handlePick = () => {
+          ipcBridge.dialog.showOpen
+            .invoke({
+              defaultPath: currentValue,
+              properties: ['openDirectory', 'createDirectory'],
+            })
+            .then((data) => {
+              if (data?.[0]) {
+                form.setFieldValue(props.field, data[0]);
+              }
+            })
+            .catch((error) => {
+              console.error('Failed to open directory dialog:', error);
+            });
+        };
+
+        return (
+          <Input
+            readOnly
+            value={currentValue}
+            placeholder={t('settings.dirNotConfigured')}
+            className='w-full [&_.arco-input]:shadow-none [&_.arco-input]:bg-white dark:[&_.arco-input]:bg-[var(--color-bg-3)]'
+            suffix={
+              <FolderOpen
+                theme='outline'
+                size='20'
+                fill={iconColors.primary}
+                className='cursor-pointer'
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePick();
+                }}
+              />
+            }
+            onClick={handlePick}
+          />
+        );
+      }}
     </Form.Item>
   );
 };
 
-const SystemSettings: React.FC = (props) => {
+const SystemSettings: React.FC = () => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
@@ -67,7 +82,7 @@ const SystemSettings: React.FC = (props) => {
   }, [systemInfo, form]);
 
   // 目录配置保存确认 / Directory configuration save confirmation
-  const saveDirConfigValidate = (values: { cacheDir: string; workDir: string }): Promise<unknown> => {
+  const saveDirConfigValidate = (_values: { cacheDir: string; workDir: string }): Promise<unknown> => {
     return new Promise((resolve, reject) => {
       modal.confirm({
         title: t('settings.updateConfirm'),
@@ -97,10 +112,10 @@ const SystemSettings: React.FC = (props) => {
         } else {
           setError(result.msg || 'Failed to update system info');
         }
-      } catch (e: any) {
-        if (e) {
+      } catch (caughtError: unknown) {
+        if (caughtError) {
           // 用户取消 / User cancelled
-          setError(e.message || e);
+          setError(caughtError instanceof Error ? caughtError.message : String(caughtError));
         }
       } finally {
         setLoading(false);
@@ -138,6 +153,10 @@ const SystemSettings: React.FC = (props) => {
         </Form.Item>
         <Form.Item label={t('settings.theme')} field={'theme'}>
           <ThemeSwitcher></ThemeSwitcher>
+        </Form.Item>
+        {/* 字体缩放设置 / Font scale setting */}
+        <Form.Item label={t('settings.fontSize')} field={'fontScale'}>
+          <FontSizeControl />
         </Form.Item>
 
         {/* 目录配置 / Directory configuration */}

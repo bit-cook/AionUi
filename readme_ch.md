@@ -167,7 +167,7 @@ AionUi 为需要更好工作流效率的用户提供了现代界面，同时**�
 
 ### 🔧 **设置很简单**
 
-- **多平台支持** - 支持 Gemini、OpenAI、BurnCloud、ModelScope、OpenRouter 等
+- **多平台支持** - 支持 Gemini、OpenAI、ModelScope、OpenRouter 等
 - **灵活配置** - 每个平台可以配置多个模型，支持自定义地址
 - **登录方便** - 支持 Google 账号登录或 API Key 认证，灵活选择
 - **自动修复** - 自动检测并修复配置问题，不用手动调试
@@ -191,6 +191,30 @@ AionUi 为需要更好工作流效率的用户提供了现代界面，同时**�
 3. **开始使用** - 立即体验现代 AI 聊天界面
 
 > 💡 **需要详细配置指南？** 查看我们的 [完整安装教程](https://github.com/iOfficeAI/AionUi/wiki/Getting-Started-Chinese)
+
+## 🛠️ 本地开发
+
+想在本地调试或定制 AionUi？
+
+1. `npm install`
+2. `npm start`
+
+`npm start` 会启动两个端口：Webpack 开发服务器（默认 **3000**）和日志查看器（默认 **9000**）。若有冲突，可通过环境变量覆盖：
+
+```bash
+AIONUI_DEV_PORT=3100 \\
+AIONUI_LOGGER_PORT=9100 \\
+npm start
+# 也可以使用 DEV_SERVER_PORT / PORT、DEV_LOGGER_PORT / LOGGER_PORT
+```
+
+Windows PowerShell 示例：
+
+```powershell
+$env:AIONUI_DEV_PORT=3100
+$env:AIONUI_LOGGER_PORT=9100
+npm start
+```
 
 ## 📚 详细文档
 
